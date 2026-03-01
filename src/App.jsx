@@ -8,6 +8,7 @@ import { WishlistProvider } from './context/WishlistContext'
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import CartDrawer from './components/CartDrawer'
 import { ProtectedRoute, AdminRoute } from './components/ProtectedRoute'
 
 import Home from './pages/Home'
@@ -34,6 +35,7 @@ export default function App() {
               <WishlistProvider>
                 <div className="min-h-screen flex flex-col">
                   <Navbar />
+                  <CartDrawer />
                   <main className="flex-1">
                     <Routes>
                       <Route path="/" element={<Home />} />

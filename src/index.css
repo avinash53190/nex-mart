@@ -3,44 +3,71 @@
 @tailwind utilities;
 
 @layer base {
-  * { @apply transition-colors duration-200; }
   body {
-    @apply bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100;
+    @apply bg-navy-950 text-slate-200 transition-colors duration-300;
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { @apply bg-transparent; }
-  ::-webkit-scrollbar-thumb { @apply bg-slate-300 dark:bg-slate-600 rounded-full; }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-950;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-navy-800 rounded-full border-2 border-navy-950;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-500/50;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 hover:shadow-brand active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply bg-brand-500 hover:bg-brand-400 text-navy-950 font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-gold hover:shadow-gold-hover active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
   }
+
   .btn-secondary {
-    @apply bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 active:scale-95;
+    @apply bg-navy-900 hover:bg-navy-800 border border-navy-800 text-brand-400 font-semibold px-6 py-3 rounded-xl transition-all duration-300 active:scale-95;
   }
-  .btn-danger {
-    @apply bg-red-500 hover:bg-red-600 text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 active:scale-95;
+
+  .btn-ghost {
+    @apply hover:bg-navy-900 text-slate-400 hover:text-brand-400 transition-all duration-300;
   }
+
   .card {
-    @apply bg-white dark:bg-slate-900 rounded-2xl shadow-card border border-slate-100 dark:border-slate-800;
+    @apply bg-navy-900 rounded-2xl shadow-card border border-navy-800/50 hover:border-brand-500/20 transition-all duration-500;
   }
+
   .input {
-    @apply w-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent placeholder:text-slate-400 dark:placeholder:text-slate-500;
+    @apply w-full bg-navy-950 border border-navy-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500/50 placeholder:text-slate-600 transition-all;
   }
+
   .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase;
+  }
+
+  .glass {
+    @apply bg-navy-950/80 backdrop-blur-md border border-white/5;
+  }
+
+  .text-gold {
+    @apply bg-gradient-to-r from-brand-300 via-brand-500 to-brand-400 bg-clip-text text-transparent;
   }
 }
 
-.skeleton {
-  @apply bg-slate-200 dark:bg-slate-800 rounded-xl animate-pulse;
+.star-filled {
+  @apply text-brand-500;
 }
 
-.product-card {
-  @apply card overflow-hidden hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 cursor-pointer;
+.star-empty {
+  @apply text-navy-800;
 }
 
-.star-filled { color: #f59e0b; }
-.star-empty { color: #e2e8f0; }
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-gold-hover;
+}
